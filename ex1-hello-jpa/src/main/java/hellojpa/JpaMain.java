@@ -24,24 +24,23 @@ public class JpaMain {
 		tx.begin();
 
 		try {
-			
-			// 저장
-			Member member = new Member();
-			member.setId(2L);
-			member.setName("HelloB");
-
-			em.persist(member);
-			
-			// 조회
-			Member findMember = em.find(Member.class, "1L");
-			System.out.println("findMember.id ==>" + findMember.getId());
-			System.out.println("findMember.name ==>" + findMember.getName());
-			
-			// 수정
-			findMember.setName("HelloJPA");
-			
-			// 삭제
-			// em.remove(findMember);
+//			// 저장
+//			Member member = new Member();
+//			member.setId(2L);
+//			member.setName("HelloB");
+//
+//			em.persist(member);
+//			
+//			// 조회
+//			Member findMember = em.find(Member.class, "1L");
+//			System.out.println("findMember.id ==>" + findMember.getId());
+//			System.out.println("findMember.name ==>" + findMember.getName());
+//			
+//			// 수정
+//			findMember.setName("HelloJPA");
+//			
+//			// 삭제
+//			 em.remove(findMember);
 
 			tx.commit();
 		} catch (Exception e) {
