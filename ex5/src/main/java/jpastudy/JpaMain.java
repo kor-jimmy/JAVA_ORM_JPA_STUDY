@@ -18,15 +18,20 @@ public class JpaMain {
 
 		try {
 			Team team = new Team();
-			team.setName("teamA");
+			team.setName("TeamA");
 			em.persist(team);
-			
+
 			Member member = new Member();
 			member.setUsername("member1");
-			member.setTeamId(team.getId());
-			
+			member.setTeam(team);
+
 			em.persist(member);
-			
+
+			Member findMemeber = em.find(Member.class, member.getId());
+			Team findTeam = findMemeber.getTeam();
+
+			System.out.println("findTeam = " + findTeam.getName());
+
 			tx.commit();
 		} catch (Exception e) {
 			// TODO: handle exception
