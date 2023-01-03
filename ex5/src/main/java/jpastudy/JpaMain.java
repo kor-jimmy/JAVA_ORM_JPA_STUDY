@@ -28,9 +28,16 @@ public class JpaMain {
 			em.persist(member);
 
 			Member findMemeber = em.find(Member.class, member.getId());
+			
+			// 객체 그래프 탐색
+			// 참조를 사용해서 연관관계 조회
 			Team findTeam = findMemeber.getTeam();
 
 			System.out.println("findTeam = " + findTeam.getName());
+			
+			// 수
+			Team newTeam = em.find(Team.class, 100L);
+			findMemeber.setTeam(newTeam);
 
 			tx.commit();
 		} catch (Exception e) {
