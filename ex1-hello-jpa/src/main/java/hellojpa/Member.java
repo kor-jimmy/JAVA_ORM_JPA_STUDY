@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 //@Entity
-public class Member {
+public class Member extends BaseEntity {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
