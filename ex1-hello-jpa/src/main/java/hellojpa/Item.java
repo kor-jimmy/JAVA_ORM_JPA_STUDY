@@ -9,8 +9,9 @@ import javax.persistence.InheritanceType;
 
 @Entity
 // 상속관계 매핑 테이블 전략 어노테이션. 부모 객체에서 정의
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+// 단일 테이블 전략으로 생성시 dtype 자동으로 생성함.
+// @DiscriminatorColumn
 public class Item {
 
 	@Id
