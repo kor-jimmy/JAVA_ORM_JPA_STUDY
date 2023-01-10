@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ORDERS")
-public class Order {
+public class Order extends BaseEntity {
 
 	/*
 	 * Order는 예약어니까, 테이블 이름 다르게!
@@ -33,9 +33,9 @@ public class Order {
 	@ManyToOne
 	@JoinColumn(name = "MEMBER_ID")
 	private Member member;
-	
+
 	@OneToOne
-	@JoinColumn(name="DELIVERY_ID")
+	@JoinColumn(name = "DELIVERY_ID")
 	private Delivery delivery;
 
 	@OneToMany(mappedBy = "order")
@@ -45,7 +45,7 @@ public class Order {
 
 	@Enumerated(EnumType.STRING)
 	private OrderStatus status;
-	
+
 	public void addOrderItem(OrderItem orderItem) {
 		orderItems.add(orderItem);
 		orderItem.setOrder(this);
@@ -98,7 +98,5 @@ public class Order {
 	public void setDelivery(Delivery delivery) {
 		this.delivery = delivery;
 	}
-	
-	
 
 }
