@@ -9,8 +9,8 @@ public class JpaMain {
 
 	public static void main(String[] args) {
 		/*
-		 *  EntityManagerFactory는 하나만 생성해서 애플리케이션 전체에서 공유
-		 * */
+		 * EntityManagerFactory는 하나만 생성해서 애플리케이션 전체에서 공유
+		 */
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
 
 		/**
@@ -41,6 +41,19 @@ public class JpaMain {
 //			
 //			// 삭제
 //			 em.remove(findMember);
+
+			Movie movie = new Movie();
+			movie.setDirector("aaa");
+			movie.setActor("BBB");
+			movie.setName("자바의 모든것");
+			movie.setPrice(1000);
+
+			em.persist(movie);
+
+			em.flush();
+			em.clear();
+			Movie findMovie = em.find(Movie.class, movie.getId());
+			System.out.println("movie name ==> " + movie.getName());
 
 			tx.commit();
 		} catch (Exception e) {
